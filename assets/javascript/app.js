@@ -22,58 +22,121 @@
     question: 'Which of the following is not a Pearl Jam album?',
     choices: ['No Code', 'Badmotorfinger', 'Riot Act', 'Lightning Bolt'],
     answer: 'Badmotorfinger',
-    git: 'https://media.giphy.com/media/PT55g5kdMcPQs/giphy.gif'
+    gif: 'https://media.giphy.com/media/PT55g5kdMcPQs/giphy.gif'
 }]
 
 var count = 0
-var number = 30
+var number = 10
 var intervalId
-var correct
-var incorrect
-var unanswered
+var correct = 0
+var incorrect = 0
+var unanswered = 0
 
-$('.question').html('<button class="start">START</button')
+$('.question').html('<button class="start">START</button>')
 
 $('.start').on('click', function () {
-
+    displayQ()    
 })
 
 
-function start () {
+function start() {
+    number = 10
     intervalId = setInterval(decrement, 1000)
+    $('.time').html('<div class="time-number"><h2>Time Remaining: 10 Seconds<h2></div>')
 }
 
-function decrement () {
+function decrement() {
     number--
-    $('.time').html('<h2>' + number + '<h2>')
+    $('.time').html('<div class="time-number"><h2>Time Remaining: ' + number + ' Seconds<h2>')
 
     if (number === 0) {
         timesUp()
     }
 }
 
-function timesUp () {
-    clearInterval(intervalId)
-}
+function displayQ() {
+    console.log(count)
 
-function displayQ () {
-    $('.question').html('<h3>' + items[count].question + '<h3>')
+    if (count === items.length) {
+        displayStats()
+        console.log('bear')
+        return
+    }
+
+    start()
+     
+    $('.question').html('<h3 class="test">' + items[count].question + '</h3>')
+    
     $.each(items[count].choices, function (index, key) {
-        $('.choices').append($('<h3>' + key + '</h3>'))
+
+        $('.row'+[index]).html($('<div class="q">' + key + '</div>'))
     })
+
+    checkAnswer()
+}
+
+function checkAnswer() {
+    $('.q').on('click', function (e) {
+        if (e.target.innerText === items[count].answer) {
+            console.log('correct')
+            displayWin()
+        } else {
+            console.log('incorrect')
+            dispalyLoss()
+        }
+})
+}
+
+function displayWin() {
+    
+    $('.question').html($('<h3 class="test">CORRECT!</h3>'))
+    $('.row0').html('<img class="gif" src=' + items[count].gif + '>')
+    $('.row1, .row2, .row3').empty()
+    clearInterval(intervalId)
+    correct++
+    count++
+    setTimeout(displayQ, 3000)
+
+}
+
+function dispalyLoss() {
+    $('.question').html($('<h3 class="test dif">NOPE! <br> The correct answer is: <br>' + items[count].answer + '</h3>'))
+    $('.row0').html('<img class="gif" src=' + items[count].gif + '>')
+    $('.row1, .row2, .row3').empty()
+    incorrect++
+    clearInterval(intervalId)
+    count++
+    setTimeout(displayQ, 3000)
+}
+
+function timesUp() {
+    clearInterval(intervalId)
+    $('.question').html($('<h3 class="test dif">TIMES UP!<br>The correct answer was:<br>' + items[count].answer + '</h3>'))
+    $('.row0').html('<img class="gif" src=' + items[count].gif + '>')
+    $('.row1, .row2, .row3').empty()
+    unanswered++
+    count++
+    setTimeout(displayQ, 3000)
+
+}
+
+function displayStats() {
+    $('.row0, .row1, .row2, .row3').empty()
+    $('.question').html('<h3 class="test">All done, here\'s how you did!</h3>')
+    $('.row0').html($('<div class="q">Correct Answers: ' + correct + '</div>'))
+    $('.row1').html($('<div class="q">Incorrect Answers: ' + incorrect + '</div>'))
+    $('.row2').html($('<div class="q">Unanswered: ' + unanswered + '</div>'))
+    $('.row3').html($('<button class="reset">Start Over</button>'))
+
+    $('.reset').on('click', function () {
+        count = 0
+        correct = 0
+        incorrect = 0
+        unanswered = 0
+
+        displayQ()
+    })
+
 }
 
 
-
-displayQ()
-
-
-
-
-
-
-
-
-
-//  $('.title').append('<img src=' + items[0].gif + '>')
-//  console.log(items[2].choices[1])

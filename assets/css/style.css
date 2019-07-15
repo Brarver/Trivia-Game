@@ -1,22 +1,95 @@
-p {
-    color: red;
+html { 
+    background: url('../images/grunge-rock-background-1.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+body {
+    width: 960px;
+    margin: auto;
+}
+.container {
+    /* width: 960px; */
+    margin-top: 100px;
+    border: 2px solid black;
+    padding-bottom: 50px;
 }
 
-.row {
+.title {
+    border: 3px solid white;
+    background-color: black;
+    color: white;
+    height: 200px;
+}
+
+h1 {
+    margin: auto;
+    font-size: 80px;
+}
+
+.start {
+    margin: auto;
+    width: 300px;
+    font-size: 30px;
+    letter-spacing: 3px;
+}
+
+.time {
     border: 1px solid black;
+    height: 80px;
+    text-align: center;
+}
+
+.time-number {
+    margin: auto;
+}
+
+.question {
+    /* border: 1px solid black; */
     height: 150px;
 }
+
 
 button {
     height: 50px;
 }
 
-.start {
-    color: yellow;
-}
-
 h3 {
-    display: block;
-    margin: 70px;
+    /* display: inline-block; */
+    margin: auto; 
+   
 }
 
+.test {
+    margin: auto;
+    text-align: center;
+}
+
+.q {
+    margin: auto;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.gif {
+    margin: auto;
+    width: 400px;
+    max-width: 400px;
+    max-height: 300px;
+}
+
+.reset {
+    margin: auto;
+    width: 200px;
+    margin-top: 30px;
+}
+
+.dif {
+    margin-bottom: 10px;
+}
+
+.choices {
+    height: 300px;
+}
