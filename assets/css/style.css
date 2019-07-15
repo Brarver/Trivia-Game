@@ -1,0 +1,22 @@
+p {
+    color: red;
+}
+
+.row {
+    border: 1px solid black;
+    height: 150px;
+}
+
+button {
+    height: 50px;
+}
+
+.start {
+    color: yellow;
+}
+
+h3 {
+    display: block;
+    margin: 70px;
+}
+
