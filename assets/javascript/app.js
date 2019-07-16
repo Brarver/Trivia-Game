@@ -100,7 +100,7 @@ function displayWin() {
 }
 
 function dispalyLoss() {
-    $('.question').html($('<h3 class="test dif">NOPE! <br> The correct answer is: <br>' + items[count].answer + '</h3>'))
+    $('.question').html($('<h3 class="dif">NOPE! <br> The correct answer is: <br>' + items[count].answer + '</h3>'))
     $('.row0').html('<img class="gif" src=' + items[count].gif + '>')
     $('.row1, .row2, .row3').empty()
     incorrect++
@@ -111,7 +111,7 @@ function dispalyLoss() {
 
 function timesUp() {
     clearInterval(intervalId)
-    $('.question').html($('<h3 class="test dif">TIMES UP!<br>The correct answer was:<br>' + items[count].answer + '</h3>'))
+    $('.question').html($('<h3 class="dif">TIMES UP!<br>The correct answer was:<br>' + items[count].answer + '</h3>'))
     $('.row0').html('<img class="gif" src=' + items[count].gif + '>')
     $('.row1, .row2, .row3').empty()
     unanswered++
