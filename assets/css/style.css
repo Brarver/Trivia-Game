@@ -1,10 +1,11 @@
-/* html { 
+html { 
     background: url('../images/grunge-rock-background-1.jpg') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-  } */
+    /* test test test */
+  }
 
 body {
     width: 960px;
@@ -15,6 +16,7 @@ body {
     margin-top: 100px;
     border: 2px solid black;
     padding-bottom: 50px;
+    margin-bottom: 100px;
 }
 
 .title {
