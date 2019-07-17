@@ -40,7 +40,7 @@ $('.start').on('click', function () {
 
 
 function start() {
-    number = 10
+    number = 15
     intervalId = setInterval(decrement, 1000)
     $('.time').html('<div class="time-number"><h2>Time Remaining: 10 Seconds<h2></div>')
 }
@@ -69,14 +69,14 @@ function displayQ() {
     
     $.each(items[count].choices, function (index, key) {
 
-        $('.row'+[index]).html($('<div class="q">' + key + '</div>'))
+        $('.row'+[index]).html($('<div class="check">' + key + '</div>'))
     })
 
     checkAnswer()
 }
 
 function checkAnswer() {
-    $('.q').on('click', function (e) {
+    $('.check').on('click', function (e) {
         if (e.target.innerText === items[count].answer) {
             displayWin()
         } else {
