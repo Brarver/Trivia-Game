@@ -1,7 +1,7 @@
  var items = [{
      question: 'Which of these is not a widely believed cause of death for Kurt Cobain?',
-     choices: ['Suicide', 'Heroin overdose', 'Murder', 'Pneumaonia'],
-     answer: 'Suicide',
+     choices: ['Suicide', 'Heroin overdose', 'Murder', 'Pneumonia'],
+     answer: 'Pneumonia',
      gif: 'https://media.giphy.com/media/l41m2n5acbmro6raU/giphy.gif'
  },{
     question: 'Which of these bands is not from Seattle?',
@@ -26,7 +26,7 @@
 }]
 
 var count = 0
-var number = 10
+var number = 15
 var intervalId
 var correct = 0
 var incorrect = 0
@@ -78,10 +78,8 @@ function displayQ() {
 function checkAnswer() {
     $('.q').on('click', function (e) {
         if (e.target.innerText === items[count].answer) {
-            console.log('correct')
             displayWin()
         } else {
-            console.log('incorrect')
             dispalyLoss()
         }
 })
@@ -95,7 +93,7 @@ function displayWin() {
     clearInterval(intervalId)
     correct++
     count++
-    setTimeout(displayQ, 3000)
+    setTimeout(displayQ, 4000)
 
 }
 
@@ -106,7 +104,7 @@ function dispalyLoss() {
     incorrect++
     clearInterval(intervalId)
     count++
-    setTimeout(displayQ, 3000)
+    setTimeout(displayQ, 4000)
 }
 
 function timesUp() {
@@ -116,7 +114,7 @@ function timesUp() {
     $('.row1, .row2, .row3').empty()
     unanswered++
     count++
-    setTimeout(displayQ, 3000)
+    setTimeout(displayQ, 4000)
 
 }
 
