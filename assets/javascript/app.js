@@ -42,7 +42,7 @@ $('.start').on('click', function () {
 function start() {
     number = 15
     intervalId = setInterval(decrement, 1000)
-    $('.time').html('<div class="time-number"><h2>Time Remaining: 10 Seconds<h2></div>')
+    $('.time').html('<div class="time-number"><h2>Time Remaining: 15 Seconds<h2></div>')
 }
 
 function decrement() {
